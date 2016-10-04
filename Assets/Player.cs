@@ -20,6 +20,9 @@ public class Player : MonoBehaviour {
 			tryingToGrab = false;
 			isGrabbing = false;
 		}
+        Debug.Log("(" + CrossPlatformInputManager.GetAxis("Horizontal") + ", " + CrossPlatformInputManager.GetAxis("Vertical") + ")");
+
+        
 	}
 
 	void OnCollisionEnter (Collision collision) {
