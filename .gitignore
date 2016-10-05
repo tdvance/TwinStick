@@ -5,6 +5,7 @@
 /[Bb]uilds/
 /Assets/AssetStoreTools*
 /*_Data
+/Assets/Standard*
 
 *.pidb.meta
 sysinfo.txt
