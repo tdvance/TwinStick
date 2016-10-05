@@ -6,6 +6,7 @@
 /Assets/AssetStoreTools*
 /*_Data
 /Assets/Standard*
+/Standard*
 
 *.pidb.meta
 sysinfo.txt

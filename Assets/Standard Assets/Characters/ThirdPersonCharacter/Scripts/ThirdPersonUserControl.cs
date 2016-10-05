@@ -24,7 +24,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             else
             {
                 Debug.LogWarning(
-                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.");
+                    "Warning: no main camera found. Third person character needs a Camera tagged \"MainCamera\", for camera-relative controls.", gameObject);
                 // we use self-relative controls in this case, which probably isn't what the user wants, but hey, we warned them!
             }
 
@@ -47,7 +47,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         {
             // read inputs
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
-            //float v = CrossPlatformInputManager.GetAxis("Vertical");
+            float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool crouch = Input.GetKey(KeyCode.C);
 
             // calculate move direction to pass to character
@@ -55,12 +55,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 // calculate camera relative direction to move:
                 m_CamForward = Vector3.Scale(m_Cam.forward, new Vector3(1, 0, 1)).normalized;
-				m_Move = h*m_Cam.right; // + v*m_CamForward;
+                m_Move = v*m_CamForward + h*m_Cam.right;
             }
             else
             {
                 // we use world-relative directions in the case of no main camera
-				m_Move = h*Vector3.right; // + v*Vector3.forward;
+                m_Move = v*Vector3.forward + h*Vector3.right;
             }
 #if !MOBILE_INPUT
 			// walk speed multiplier
