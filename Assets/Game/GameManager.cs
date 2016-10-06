@@ -8,15 +8,17 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
-	}
+        recording = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (CrossPlatformInputManager.GetButton("Fire1")) {
-            recording = false;
-        }else {
-            recording = true;
+        if (CrossPlatformInputManager.GetButtonDown("Replay")) {
+            if (recording) {
+                recording = false;
+            }else {
+                recording = true;
+            }
         }
 	}
 }
